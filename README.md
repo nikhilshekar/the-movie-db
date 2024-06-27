@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Hosted Link
 
 ## Available Scripts
-([https://github.com/facebook/create-react-app](https://cool-pika-db8e73.netlify.app/))
+(https://cool-pika-db8e73.netlify.app/)
 
 
 In the project directory, you can run:
