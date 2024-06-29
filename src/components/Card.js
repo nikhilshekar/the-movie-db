@@ -1,12 +1,25 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AddToWatchlist from "../components/AddToWatchlist";
+import RemoveFromWatchlist from "./RemoveFromWatchlist";
 
-const Card = ({ movie }) => {
+const Card = ({ movie, watchListIds, setWatchListIds }) => {
   const navigate = useNavigate();
+
+ 
+
   return (
     <div className="card m-3" style={{ width: "18rem" }}>
-      <AddToWatchlist movieData={movie}/>
+      {watchListIds.includes(movie.id) ? (
+        <RemoveFromWatchlist
+          id={movie.id}
+          watchListIds={watchListIds}
+          setWatchListIds={setWatchListIds}
+        />
+      ) : (
+        <AddToWatchlist movieData={movie} setWatchListIds={setWatchListIds} />
+      )}
+
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         className="card-img-top"

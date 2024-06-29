@@ -26,6 +26,8 @@ const MovieDetail = () => {
     return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
   };
 
+  console.log(id)
+
   return (
     <div className="container mt-3">
       {movieData && (

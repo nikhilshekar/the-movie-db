@@ -53,7 +53,8 @@
   cursor: pointer;
 }
 
-.addToWatchListBtn {
+.addToWatchListBtn,
+.removeFromWatchListBtn {
   left: 80%;
   top: 2%;
 }

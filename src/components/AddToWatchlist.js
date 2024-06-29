@@ -1,7 +1,7 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
 
-const AddToWatchlist = ({ movieData }) => {
+const AddToWatchlist = ({ movieData,setWatchListIds }) => {
   const addToWatchList = () => {
     let watchListIds = [];
     watchListIds = JSON.parse(localStorage.getItem("wathListIds"));
@@ -12,6 +12,7 @@ const AddToWatchlist = ({ movieData }) => {
     watchListIds.push(movieData.id);
     watchListIds = [...new Set(watchListIds)];
     localStorage.setItem("wathListIds", JSON.stringify(watchListIds));
+    setWatchListIds(JSON.parse(localStorage.getItem("wathListIds")));
   };
 
   return (

@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   const [movieList, setMovieList] = useState([]);
+  const [watchListIds, setWatchListIds] = useState([]);
 
   const fetchMovieData = async () => {
     const urls = [
@@ -23,17 +24,18 @@ function App() {
 
   useEffect(() => {
     fetchMovieData();
+    setWatchListIds(JSON.parse(localStorage.getItem("wathListIds")));
   }, []);
 
   return (
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home movieList={movieList} />} />
+        <Route path="/" element={<Home movieList={movieList} watchListIds={watchListIds} setWatchListIds={setWatchListIds} />} />
         <Route path="/movie-detail/:id" element={<MovieDetail />} />
         <Route
           path="/watchlist"
-          element={<WatchList movieList={movieList} />}
+          element={<WatchList movieList={movieList} watchListIds={watchListIds} setWatchListIds={setWatchListIds} />}
         />
       </Routes>
     </div>
