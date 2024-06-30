@@ -6,9 +6,11 @@ const WatchList = ({ movieList, watchListIds, setWatchListIds }) => {
   const [watchListMovie, setWatchListMovie] = useState([]);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    let movies = movieList.filter((movie) => watchListIds.includes(movie.id));
+    let movies =[];
+    if (watchListIds) {
+      movies = movieList.filter((movie) => watchListIds.includes(movie.id));
+    }
     setWatchListMovie(movies);
   }, [watchListIds, movieList]);
 
@@ -18,7 +20,10 @@ const WatchList = ({ movieList, watchListIds, setWatchListIds }) => {
         {watchListMovie.length !== 0 ? (
           watchListMovie.map((movie, i) => (
             <div className="card m-3" style={{ width: "18rem" }} key={i}>
-              <RemoveFromWatchlist id={movie.id} setWatchListIds={setWatchListIds} />
+              <RemoveFromWatchlist
+                id={movie.id}
+                setWatchListIds={setWatchListIds}
+              />
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 className="card-img-top"
