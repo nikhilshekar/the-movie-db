@@ -27,7 +27,6 @@ const MovieDetail = () => {
     fetchMovieDetails();
   }, [id]);
 
-  console.log(castData);
 
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
@@ -69,10 +68,10 @@ const MovieDetail = () => {
                 height={"375px"}
               />
             </div>
-            <div className="m-3" style={{ minWidth: "90%" }}>
+            <div className="m-3 mb-4" style={{ minWidth: "90%" }}>
               <div className="d-flex justify-content-between">
                 <div className="title fw-bolder mb-1 ">
-                  <h2 className="h2">{movieData.title}</h2>
+                  <h3 className="h3">{movieData.title}</h3>
                 </div>
                 <div className="ratings mt-1 ms-2">
                   {[...Array(Math.floor(movieData.vote_average))].map(
