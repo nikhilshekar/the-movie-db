@@ -5,12 +5,9 @@ import RemoveFromWatchlist from "./RemoveFromWatchlist";
 
 const Card = ({ movie, watchListIds, setWatchListIds }) => {
   const navigate = useNavigate();
-
- 
-
   return (
     <div className="card m-3" style={{ width: "18rem" }}>
-      {watchListIds.includes(movie.id) ? (
+      {watchListIds && watchListIds.includes(movie.id) ? (
         <RemoveFromWatchlist
           id={movie.id}
           watchListIds={watchListIds}
@@ -30,7 +27,7 @@ const Card = ({ movie, watchListIds, setWatchListIds }) => {
       />
       <div className="card-body">
         <h5 className="card-title text-center">
-          {movie.original_title || movie.original_name}
+          {movie.title || movie.original_title || movie.original_name}
         </h5>
       </div>
     </div>

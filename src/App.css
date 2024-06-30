@@ -58,3 +58,7 @@
   left: 80%;
   top: 2%;
 }
+
+.castListItem {
+  max-width: 9rem;
+}
